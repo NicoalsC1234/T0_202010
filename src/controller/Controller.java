@@ -1,11 +1,11 @@
-package controller;
+  package controller;
 
 import java.util.Scanner;
 
 import model.logic.Modelo;
 import view.View;
 
-public class Controller {
+public class Controller <T extends Comparable<T>>{
 
 	/* Instancia del Modelo*/
 	private Modelo modelo;
@@ -28,7 +28,7 @@ public class Controller {
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
 		String dato = "";
-		String respuesta = "";
+		T respuesta = null;
 
 		while( !fin ){
 			view.printMenu();
@@ -54,7 +54,7 @@ public class Controller {
 				case 3:
 					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
 					dato = lector.next();
-					respuesta = modelo.buscar(dato);
+					respuesta = (T) modelo.buscar(dato);
 					if ( respuesta != null)
 					{
 						view.printMessage("Dato encontrado: "+ respuesta);
@@ -69,7 +69,7 @@ public class Controller {
 				case 4:
 					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
 					dato = lector.next();
-					respuesta = modelo.eliminar(dato);
+					respuesta = (T) modelo.eliminar(dato);
 					if ( respuesta != null)
 					{
 						view.printMessage("Dato eliminado "+ respuesta);
