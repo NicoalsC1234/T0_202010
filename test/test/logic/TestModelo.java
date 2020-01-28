@@ -31,22 +31,36 @@ public class TestModelo {
 	@Test
 	public void testDarTamano() {
 		// TODO
+		setUp1();
+		setUp2();
+		assertTrue(CAPACIDAD == modelo.darTamano());
 	}
 
 	@Test
 	public void testAgregar() {
 		// TODO Completar la prueba
+		setUp1();
+		setUp2();
+		assertEquals(CAPACIDAD +1 , modelo.darTamano() +1);
 	}
 
 	@Test
 	public void testBuscar() {
 		setUp2();
 		// TODO Completar la prueba
+		for (int i = 0; i < CAPACIDAD; i++) {
+			assertEquals(i, modelo.buscar(i));
+		}
 	}
 
 	@Test
 	public void testEliminar() {
+		setUp1();
 		setUp2();
+		assertEquals(null, modelo.eliminar(238));
+		assertTrue(modelo.eliminar(1).compareTo(1) == 0);
+		
+		
 		// TODO Completar la prueba
 		
 	}
